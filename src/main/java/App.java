@@ -7,6 +7,15 @@ public class App {
                 new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
+        HelloWorld bean1 =
+                (HelloWorld) applicationContext.getBean("helloworld");
+
+        Cat cat = applicationContext.getBean("cat", Cat.class);
+        Cat cat2 = applicationContext.getBean("cat", Cat.class);
+
+        System.out.println(bean1.getMessage());
         System.out.println(bean.getMessage());
+        System.out.println("Объект один и тот же? " + (bean1 == bean));
+        System.out.println("Объект один и тот же? " + (cat == cat2));
     }
 }
